@@ -15,8 +15,6 @@ RUN a2enmod rewrite && \
     rm -rf /var/www/html/AdminAFK-master && \
     chown www-data:www-data -R /var/www
 
-RUN sed -i 's@#RewriteBase /@RewriteBase /@g' /var/www/html/web/.htaccess
-
 COPY 000-default.conf /etc/apache2/sites-available/000-default.conf
 
 COPY entrypoint.sh /sbin/entrypoint.sh
