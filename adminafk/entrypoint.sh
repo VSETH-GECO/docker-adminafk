@@ -25,19 +25,19 @@ then
     mysql -u $MYSQL_USER -p$MYSQL_PASS < $ADMINAFK_WEB_HOME/adminafk.sql
 
     # manage config
-    sed -i "s|\$BASE_URL.*|\$BASE_URL = '${BASE_URL}'|" $ADMINAFK_WEB_HOME/config/config.php
+    sed -i "s|\$BASE_URL.*|\$BASE_URL = '${BASE_URL}';|" $ADMINAFK_WEB_HOME/config/config.php
     
-    sed -i "s|\$SERVERNAME_ADMINAFK.*|\$SERVERNAME_ADMINAFK = '${MYSQL_HOST}'|" $ADMINAFK_WEB_HOME/config/config.php
-    sed -i "s|\$PORT_ADMINAFK.*|\$PORT_ADMINAFK = '${MYSQL_PORT}'|" $ADMINAFK_WEB_HOME/config/config.php
-    sed -i "s|\$DBNAME_ADMINAFK.*|\$DBNAME_ADMINAFK = '${MYSQL_DB}'|" $ADMINAFK_WEB_HOME/config/config.php
-    sed -i "s|\$USERNAME_ADMINAFK.*|\$USERNAME_ADMINAFK = '${MYSQL_USER}'|" $ADMINAFK_WEB_HOME/config/config.php
-    sed -i "s|\$PASSWORD_ADMINAFK.*|\$PASSWORD_ADMINAFK = '${MYSQL_PASS}'|" $ADMINAFK_WEB_HOME/config/config.php
+    sed -i "s|\$SERVERNAME_ADMINAFK.*|\$SERVERNAME_ADMINAFK = '${MYSQL_HOST}';|" $ADMINAFK_WEB_HOME/config/config.php
+    sed -i "s|\$PORT_ADMINAFK.*|\$PORT_ADMINAFK = '${MYSQL_PORT}';|" $ADMINAFK_WEB_HOME/config/config.php
+    sed -i "s|\$DBNAME_ADMINAFK.*|\$DBNAME_ADMINAFK = '${MYSQL_DB}';|" $ADMINAFK_WEB_HOME/config/config.php
+    sed -i "s|\$USERNAME_ADMINAFK.*|\$USERNAME_ADMINAFK = '${MYSQL_USER}';|" $ADMINAFK_WEB_HOME/config/config.php
+    sed -i "s|\$PASSWORD_ADMINAFK.*|\$PASSWORD_ADMINAFK = '${MYSQL_PASS}';|" $ADMINAFK_WEB_HOME/config/config.php
     
-    sed -i "s|\$SERVERNAME_EBOT.*|\$SERVERNAME_EBOT = '${EBOT_MYSQL_HOST}'|" $ADMINAFK_WEB_HOME/config/config.php
-    sed -i "s|\$PORT_EBOT.*|\$PORT_EBOT = '${EBOT_MYSQL_PORT}'|" $ADMINAFK_WEB_HOME/config/config.php
-    sed -i "s|\$DBNAME_EBOT.*|\$DBNAME_EBOT = '${EBOT_MYSQL_DB}'|" $ADMINAFK_WEB_HOME/config/config.php
-    sed -i "s|\$USERNAME_EBOT.*|\$USERNAME_EBOT = '${EBOT_MYSQL_USER}'|" $ADMINAFK_WEB_HOME/config/config.php
-    sed -i "s|\$PASSWORD_EBOT.*|\$PASSWORD_EBOT = '${EBOT_MYSQL_PASS}'|" $ADMINAFK_WEB_HOME/config/config.php
+    sed -i "s|\$SERVERNAME_EBOT.*|\$SERVERNAME_EBOT = '${EBOT_MYSQL_HOST}';|" $ADMINAFK_WEB_HOME/config/config.php
+    sed -i "s|\$PORT_EBOT.*|\$PORT_EBOT = '${EBOT_MYSQL_PORT}';|" $ADMINAFK_WEB_HOME/config/config.php
+    sed -i "s|\$DBNAME_EBOT.*|\$DBNAME_EBOT = '${EBOT_MYSQL_DB}';|" $ADMINAFK_WEB_HOME/config/config.php
+    sed -i "s|\$USERNAME_EBOT.*|\$USERNAME_EBOT = '${EBOT_MYSQL_USER}';|" $ADMINAFK_WEB_HOME/config/config.php
+    sed -i "s|\$PASSWORD_EBOT.*|\$PASSWORD_EBOT = '${EBOT_MYSQL_PASS}';|" $ADMINAFK_WEB_HOME/config/config.php
 
     touch .installed
 fi
