@@ -7,6 +7,10 @@ services:
       - "80:80"
     networks:
       - database
+    depends_on:
+      - db
+    volumes:
+      - /opt/docker/adminafk/index.php:/var/www/html/index.php
     environment:
       BASE_URL: 'adminafk'
       MYSQL_HOST: 'mysql'
