@@ -22,7 +22,7 @@ while ! nc -z $MYSQL_HOST $MYSQL_PORT; do sleep 3; done
 if [ ! -f .installed ]
 then
     # init db if not already initialized
-    mysql -u $MYSQL_USER -p$MYSQL_PASS < $ADMINAFK_WEB_HOME/adminafk.sql
+    mysql -u $MYSQL_USER -p$MYSQL_PASS adminafk < $ADMINAFK_WEB_HOME/adminafk.sql
 
     # manage config
     sed -i "s|\$BASE_URL.*|\$BASE_URL = '${BASE_URL}';|" $ADMINAFK_WEB_HOME/config/config.php
