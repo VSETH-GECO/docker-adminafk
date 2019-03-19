@@ -9,8 +9,6 @@ services:
       - database
     depends_on:
       - db
-    volumes:
-      - /opt/docker/adminafk/index.php:/var/www/html/index.php
     environment:
       BASE_URL: 'adminafk'
       MYSQL_HOST: 'mysql'
@@ -28,7 +26,7 @@ services:
     image: mysql:5.7.23
     restart: always
     volumes:
-      - /opt/docker/ebot/mysql:/var/lib/mysql
+      - /opt/docker/adminafk/mysql:/var/lib/mysql
     expose:
       - "3306"
     environment:
