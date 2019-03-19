@@ -22,6 +22,8 @@ while ! nc -z $MYSQL_HOST $MYSQL_PORT; do sleep 3; done
 if [ ! -f .installed ]
 then
     # init db if not already initialized
+    sed -i "s|DROP TABLE.*||" $ADMINAFK_WEB_HOME/adminafk.sql
+    sed -i "s|);|) ON DUPLICATE KEY IGNORE;|" $ADMINAFK_WEB_HOME/adminafk.sql
     mysql -u $MYSQL_USER -p$MYSQL_PASS adminafk < $ADMINAFK_WEB_HOME/adminafk.sql
 
     # manage config
