@@ -5,7 +5,7 @@ ENV TIMEZONE="Europe/Paris"
 RUN a2enmod rewrite && \
     docker-php-ext-install pdo_mysql && \
     echo 'date.timezone = "${TIMEZONE}"' >> /usr/local/etc/php/conf.d/php.ini && \
-    apt-get update && apt-get -y install zip netcat && \
+    apt-get update && apt-get -y install zip netcat mysql-client && \
     apt-get clean && \
     rm -rf /var/www/html/* && \
     curl -L https://github.com/lyon-esport/AdminAFK/archive/master.zip >> /tmp/master.zip && \
