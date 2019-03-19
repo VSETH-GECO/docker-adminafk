@@ -1,0 +1,41 @@
+version: '3'
+services:
+  adminafk:
+    image: docker.stammgruppe.eu/adminafk:1
+    restart: always
+    ports:
+      - "80:80"
+    networks:
+      - database
+    environment:
+      BASE_URL: 'adminafk'
+      MYSQL_HOST: 'mysql'
+      MYSQL_PORT: '3306'
+      MYSQL_DB: 'adminafk'
+      MYSQL_USER: 'adminafk'
+      MYSQL_PASS: 'adminafk'
+      EBOT_MYSQL_HOST: 'ebot'
+      EBOT_MYSQL_PORT: '3306'
+      EBOT_MYSQL_DB: 'ebotv3'
+      EBOT_MYSQL_USER: 'ebotv3'
+      EBOT_MYSQL_PASS: 'ebotv3'
+
+  mysql:
+    image: mysql:5.7.23
+    restart: always
+    volumes:
+      - /opt/docker/ebot/mysql:/var/lib/mysql
+    expose:
+      - "3306"
+    environment:
+      - MYSQL_DATABASE=adminafk
+      - MYSQL_USER=adminafk
+      - MYSQL_PASSWORD=adminafk
+      - MYSQL_ROOT_PASSWORD=geco123
+      - MYSQL_ROOT_HOST=%
+    command: mysqld --sql_mode="NO_ENGINE_SUBSTITUTION"
+    networks:
+      - database
+
+networks:
+  database:
