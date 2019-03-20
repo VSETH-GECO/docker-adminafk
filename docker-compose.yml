@@ -9,6 +9,8 @@ services:
       - database
     depends_on:
       - db
+    env_file:
+      - ./index.env
     environment:
       BASE_URL: 'adminafk'
       MYSQL_HOST: 'mysql'

@@ -8,7 +8,7 @@ RUN a2enmod rewrite && \
     apt-get update && apt-get -y install zip netcat mysql-client && \
     apt-get clean && \
     rm -rf /var/www/html/* && \
-    curl -L https://github.com/lyon-esport/AdminAFK/archive/master.zip >> /tmp/master.zip && \
+    curl -L https://github.com/VSETH-GECO/AdminAFK/archive/master.zip >> /tmp/master.zip && \
     unzip -d /var/www/html /tmp/master.zip && \
     rm -rf /tmp/* && \
     mv /var/www/html/AdminAFK-master/* /var/www/html/ &&\

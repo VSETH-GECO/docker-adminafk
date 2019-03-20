@@ -16,6 +16,9 @@ EBOT_MYSQL_DB="${EBOT_MYSQL_DB:-ebotv3}"
 EBOT_MYSQL_USER="${EBOT_MYSQL_USER:-ebotv3}"
 EBOT_MYSQL_PASS="${EBOT_MYSQL_PASS:-ebotv3}"
 
+INDEX_HEADER="${INDEX_HEADER:-}"
+INDEX_BODY="${INDEX_BODY:-}"
+
 # for usage with docker-compose
 while ! nc -z $MYSQL_HOST $MYSQL_PORT; do sleep 3; done
 
@@ -40,6 +43,9 @@ then
     sed -i "s|\$DBNAME_EBOT.*|\$DBNAME_EBOT = '${EBOT_MYSQL_DB}';|" $ADMINAFK_WEB_HOME/config/config.php
     sed -i "s|\$USERNAME_EBOT.*|\$USERNAME_EBOT = '${EBOT_MYSQL_USER}';|" $ADMINAFK_WEB_HOME/config/config.php
     sed -i "s|\$PASSWORD_EBOT.*|\$PASSWORD_EBOT = '${EBOT_MYSQL_PASS}';|" $ADMINAFK_WEB_HOME/config/config.php
+    
+    sed -i "s|INDEX_HEADER|${INDEX_HEADER}|" $ADMINAFK_WEB_HOME/index.php
+    sed -i "s|INDEX_BODY|${INDEX_BODY}|" $ADMINAFK_WEB_HOME/index.php
 
     touch .installed
 fi
