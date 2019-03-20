@@ -8,11 +8,11 @@ services:
     networks:
       - database
     depends_on:
-      - db
+      - mysql
     env_file:
       - ./index.env
     environment:
-      BASE_URL: 'adminafk'
+      BASE_URL: 'http://adminafk/'
       MYSQL_HOST: 'mysql'
       MYSQL_PORT: '3306'
       MYSQL_DB: 'adminafk'
